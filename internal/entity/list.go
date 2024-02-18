@@ -7,7 +7,7 @@ type List struct {
 	Price         int    `json:"price"`
 	Amount        int    `json:"code"`
 	CreatedAt     string `json:"prodDate"`
-	Info          string `json:"desc"`
+	Info          string `json:"describe"`
 	Carrier       string `json:"size"`
 	ContactPerson string `json:"country"`
 	Note          string `json:"addParam"`

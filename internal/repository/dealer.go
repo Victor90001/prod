@@ -19,7 +19,7 @@ func NewPostgresDealerRepository(db *pgxpool.Pool) (interfaces.DealerRepository,
 
 func (r *PostgresDealerRepository) GetDealers() ([]entity.Dealer, error) {
 	var dealers []entity.Dealer
-	q := "select row_to_json(x) from (select * from Group) as x"
+	q := "select row_to_json(x) from (select * from Groups) as x"
 	rows, err := r.db.Query(context.Background(), q)
 	if err != nil && err.Error() != "no rows in result set" {
 		return dealers, err
@@ -37,7 +37,7 @@ func (r *PostgresDealerRepository) GetDealers() ([]entity.Dealer, error) {
 }
 
 func (r *PostgresDealerRepository) InsertDealer(dealer entity.Dealer) error {
-	q := "INSERT INTO Group (sectionID, name) VALUES ($1, $2)"
+	q := "INSERT INTO Groups (sectionID, name) VALUES ($1, $2)"
 	if _, err := r.db.Exec(context.Background(), q, dealer.NetworkId, dealer.Name); err != nil {
 		return err
 	}
@@ -45,7 +45,7 @@ func (r *PostgresDealerRepository) InsertDealer(dealer entity.Dealer) error {
 }
 
 func (r *PostgresDealerRepository) UpdateDealer(dealer entity.Dealer) error {
-	q := "UPDATE Group SET name=$1 WHERE id=$2"
+	q := "UPDATE Groups SET name=$1 WHERE id=$2"
 	if _, err := r.db.Exec(context.Background(), q, dealer.Name, dealer.Id); err != nil {
 		return err
 	}
@@ -53,7 +53,7 @@ func (r *PostgresDealerRepository) UpdateDealer(dealer entity.Dealer) error {
 }
 
 func (r *PostgresDealerRepository) DeleteDealer(id int) error {
-	q := "DELETE FROM Group WHERE id=$1"
+	q := "DELETE FROM Groups WHERE id=$1"
 	if _, err := r.db.Exec(context.Background(), q, id); err != nil {
 		return err
 	}

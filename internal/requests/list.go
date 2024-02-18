@@ -11,7 +11,7 @@ type InsertListRequest struct {
 	Price         int    `json:"price" binding:"required"`
 	Amount        int    `json:"code" binding:"required"`
 	CreatedAt     string `json:"prodDate" binding:"required"`
-	Info          string `json:"desc" binding:"required"`
+	Info          string `json:"describe" binding:"required"`
 	Carrier       string `json:"size" binding:"required"`
 	ContactPerson string `json:"country" binding:"required"`
 	Note          string `json:"addParam" binding:"required"`
@@ -24,7 +24,7 @@ type UpdateListRequest struct {
 	Price         int    `json:"price" binding:"required"`
 	Amount        int    `json:"code" binding:"required"`
 	CreatedAt     string `json:"prodDate" binding:"required"`
-	Info          string `json:"desc" binding:"required"`
+	Info          string `json:"describe" binding:"required"`
 	Carrier       string `json:"size" binding:"required"`
 	ContactPerson string `json:"country" binding:"required"`
 	Note          string `json:"adddParam" binding:"required"`

@@ -3,7 +3,7 @@ create table Section(
     name varchar
 );
 
-create table Group(
+create table Groups(
     id serial not null primary key,
     sectionID integer not null references Section(id) on delete cascade,
     name varchar
@@ -11,12 +11,12 @@ create table Group(
 
 create table Product(
     id serial not null primary key,
-    groupID integer not null references Group(id) on delete cascade,
+    groupID integer not null references Groups(id) on delete cascade,
     name varchar,
     code int,
     price int,
     prodDate date,
-    desc varchar,
+    describe varchar,
     size varchar,
     country varchar,
     addParam varchar

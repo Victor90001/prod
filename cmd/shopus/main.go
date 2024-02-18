@@ -22,7 +22,7 @@ func main() {
 		logLevel string
 	)
 
-	flag.StringVar(&dbUrl, "db", "postgres://shopus:shopus@postgres_shopus:5432/shopus", "database connection url")
+	flag.StringVar(&dbUrl, "db", "postgres://shopus:shopus@postgres_shopus1:5432/shopus", "database connection url")
 	flag.StringVar(&listen, "listen", ":8000", "server listen interface")
 	flag.StringVar(&logLevel, "log-level", "debug", "log level: panic, fatal, error, warning, info, debug, trace")
 

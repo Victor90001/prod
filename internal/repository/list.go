@@ -36,7 +36,7 @@ func (r *PostgresListRepository) GetLists() ([]entity.List, error) {
 }
 
 func (r *PostgresListRepository) InsertList(list entity.List) error {
-	q := "INSERT INTO Product (groupID, name, price, code, prodDate, desc, size, country, addParam) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)"
+	q := "INSERT INTO Product (groupID, name, price, code, prodDate, describe, size, country, addParam) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)"
 	if _, err := r.db.Exec(context.Background(), q, list.DealerId, list.Name, list.Price, list.Amount, list.CreatedAt, list.Info, list.Carrier, list.ContactPerson, list.Note); err != nil {
 		return err
 	}
@@ -44,7 +44,7 @@ func (r *PostgresListRepository) InsertList(list entity.List) error {
 }
 
 func (r *PostgresListRepository) UpdateList(list entity.List) error {
-	q := "UPDATE Product SET (name, price, code, prodDate, desc, size, country, addParam) = ($1, $2, $3, $4, $5, $6, $7, $8) WHERE id=$9"
+	q := "UPDATE Product SET (name, price, code, prodDate, describe, size, country, addParam) = ($1, $2, $3, $4, $5, $6, $7, $8) WHERE id=$9"
 	if _, err := r.db.Exec(context.Background(), q, list.Name, list.Price, list.Amount, list.CreatedAt, list.Info, list.Carrier, list.ContactPerson, list.Note, list.Id); err != nil {
 		return err
 	}

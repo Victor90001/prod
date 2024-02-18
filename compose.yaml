@@ -1,22 +1,22 @@
 
 
 services:
-  shopus:
-    container_name: shopus
+  shopus1:
+    container_name: shopus1
     build:
       context: .
       dockerfile: Dockerfile
     links:
-      - postgres_shopus
+      - postgres_shopus1
     env_file:
       - shopus.env
     ports:
-      - 8010:8000
+      - 8011:8000
     networks:
-      - shopus
+      - shopus1
 
-  postgres_shopus:
-    container_name: postgres_shopus
+  postgres_shopus1:
+    container_name: postgres_shopus1
     build:
       context: build/postgres
       dockerfile: Dockerfile
@@ -25,15 +25,15 @@ services:
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
     volumes:
-      - "postgres:/var/lib/postgresql/data"
+      - "postgres1:/var/lib/postgresql/data"
     ports:
-      - 5555:5432
+      - 5556:5432
     networks:
-      - shopus
+      - shopus1
 
 networks:
-  shopus:
-    name: shopus
+  shopus1:
+    name: shopus1
 
 volumes:
-  postgres:
+  postgres1:
