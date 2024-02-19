@@ -11,7 +11,7 @@ services:
     env_file:
       - shopus.env
     ports:
-      - 8011:8000
+      - 8012:8000
     networks:
       - shopus1
 

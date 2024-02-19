@@ -27,7 +27,7 @@ type UpdateListRequest struct {
 	Info          string `json:"describe" binding:"required"`
 	Carrier       string `json:"size" binding:"required"`
 	ContactPerson string `json:"country" binding:"required"`
-	Note          string `json:"adddParam" binding:"required"`
+	Note          string `json:"addParam" binding:"required"`
 }
 
 type DeleteListRequest struct {

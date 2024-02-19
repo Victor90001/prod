@@ -31,7 +31,7 @@ func (s *ListService) GetLists() ([]map[string]string, error) {
 			"price":          strconv.Itoa(item.Price),
 			"code":         strconv.Itoa(item.Amount),
 			"prodDate":     item.CreatedAt,
-			"desc":           item.Info,
+			"describe":           item.Info,
 			"size":        item.Carrier,
 			"country": item.ContactPerson,
 			"addParam":           item.Note,
